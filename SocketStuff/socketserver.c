@@ -3,6 +3,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
@@ -26,8 +27,8 @@ int main(int argc, char *argv[])
 
     // Set port and IP:
     server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(2000);
-    server_addr.sin_addr.s_addr = inet_addr("192.168.1.173");
+    server_addr.sin_port = htons(8001);
+    server_addr.sin_addr.s_addr = inet_addr("192.168.1.143");
 
     // Bind to the set port and IP:
     if(bind(socket_desc, (struct sockaddr*)&server_addr, sizeof(server_addr))<0){

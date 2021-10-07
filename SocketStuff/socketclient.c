@@ -5,6 +5,8 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
+#include <unistd.h>
+
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +31,7 @@ int main(int argc, char *argv[])
 
     // Set port and IP the same as server-side:
     server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(2000);
+    server_addr.sin_port = htons(atoi(argv[2]));
     // server_addr.sin_port = (in_port_t)atoi(argv[2]);
     server_addr.sin_addr.s_addr = inet_addr(argv[1]);
 
